@@ -17,9 +17,9 @@ Dialog::~Dialog()
 
 void Dialog::on_confirm_button_clicked()
 {
-    QString email = ui->lineEdit->text();
-    QString pwd = ui->lineEdit_2->text();
-    QString confirmPwd = ui->lineEdit_3->text();
+    QString email = ui->email_lineEdit->text();
+    QString pwd = ui->password_lineEdit->text();
+    QString confirmPwd = ui->confirmPassword_lineEdit->text();
     qDebug() << "Email :" << email;
     qDebug() << "Password :" << pwd;
     qDebug() << "Confirm Password :" << confirmPwd;

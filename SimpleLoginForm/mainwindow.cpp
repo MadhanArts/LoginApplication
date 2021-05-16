@@ -79,7 +79,11 @@ MainWindow::MainWindow(QWidget *parent)
     button1->move(250,180);
     connect(button1,&QPushButton::clicked,[=](){
         Dialog *dialog=new Dialog(this);
-        dialog->exec();
+        int result = dialog->exec();
+        if(result == QDialog::Rejected)
+        {
+            close();
+        }
     });
 
     //QPushButton for Login
@@ -89,7 +93,14 @@ MainWindow::MainWindow(QWidget *parent)
     button2->setMinimumSize(100, 70);
     button2->move(220,280);
     connect(button2,&QPushButton::clicked,[=](){
-        QMessageBox::information(this, "Login", "Login Successful");
+        if(unLineEdit->text() == "Madhan" && pwdLineEdit->text() == "123456")
+        {
+            QMessageBox::information(this, "Login", "Username and Password are correct");
+        }
+        else
+        {
+            QMessageBox::information(this, "Login", "Username and password are incorrect");
+        }
     });
 
 }
